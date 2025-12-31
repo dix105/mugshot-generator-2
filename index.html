@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mugshot Generator: Create Custom Arrest Images Online</title>
+    <meta name="description" content="Create realistic mugshot-style images online using our Mugshot Generator. Add a face, customize details, and generate authentic arrest-style photos easily.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body>
+    <!-- Theme Background Effects -->
+    <div class="noise-overlay"></div>
+    <div class="scanlines"></div>
+
+    <!-- Navigation -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-fingerprint"></i>
+            <span>MUGSHOT.GEN</span>
+        </div>
+        <button class="menu-toggle" aria-label="Toggle Navigation">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#playground">[ GENERATE ]</a></li>
+                <li><a href="#how-it-works">[ PROTOCOLS ]</a></li>
+                <li><a href="#gallery">[ RECORDS ]</a></li>
+                <li><a href="#faqs">[ INTEL ]</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-bg-image">
+                <img src="images/hero-bg.jpg" alt="Dark industrial prison background">
+            </div>
+            <div class="hero-bg-animation">
+                <div class="grid-scanner"></div>
+                <div class="scan-beam"></div>
+            </div>
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-content fade-in-up">
+                <h1>Mugshot Generator</h1>
+                <p>Add your face to a mugshot-style image, place it on an evidence board, or turn it into a wanted poster. Our Mugshot Generator creates realistic arrest-style visuals with authentic details.</p>
+                <a href="#playground" class="btn btn-primary">GENERATE RECORD</a>
+            </div>
+        </section>
+
+        <!-- Playground Section -->
+        <section id="playground">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Mugshot Generator</h2>
+                    <p>Upload a subject for immediate processing.</p>
+                </div>
+
+                <div class="playground-grid">
+                    <!-- Left: Controls -->
+                    <div class="control-panel card-panel">
+                        <div class="panel-header">
+                            <i class="fa-solid fa-upload"></i> INPUT_SOURCE
+                        </div>
+                        <div class="upload-zone" id="upload-zone">
+                            <div class="upload-content" id="upload-placeholder">
+                                <i class="fa-solid fa-user-secret fa-3x"></i>
+                                <p>DRAG & DROP SUSPECT PHOTO<br>OR CLICK TO UPLOAD</p>
+                            </div>
+                            <img id="preview-image" class="hidden" alt="Upload preview">
+                            <input type="file" id="file-input" accept="image/*" hidden>
+                            <div class="scan-overlay hidden" id="scan-overlay"></div>
+                        </div>
+                        <div class="control-actions">
+                            <button id="reset-btn" class="btn btn-secondary" disabled>RESET</button>
+                            <button id="generate-btn" class="btn btn-primary" disabled>GENERATE RECORD</button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Result -->
+                    <div class="result-panel card-panel">
+                        <div class="panel-header">
+                            <i class="fa-solid fa-id-card"></i> PROCESSED_OUTPUT
+                        </div>
+                        <div class="result-display" id="result-container">
+                            <div class="result-placeholder" id="result-placeholder">
+                                <div class="placeholder-content">
+                                    <i class="fa-solid fa-lock fa-2x"></i>
+                                    <p>AWAITING INPUT DATA...</p>
+                                </div>
+                            </div>
+                            <img id="result-final" class="hidden" alt="Generated Mugshot">
+                            
+                            <!-- Loading State -->
+                            <div id="loading-state" class="loading-overlay hidden">
+                                <div class="spinner"></div>
+                                <div class="loading-text" id="loading-text">INITIALIZING...</div>
+                                <div class="progress-bar"><div class="progress-fill"></div></div>
+                            </div>
+                        </div>
+                        <button id="download-btn" class="btn btn-primary full-width" disabled>
+                            <i class="fa-solid fa-download"></i> DOWNLOAD FILE
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How to Use AI Mugshot Generator?</h2>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card fade-in-up">
+                        <div class="step-number">01</div>
+                        <h3>Upload Your Image</h3>
+                        <p>Upload a clear photo of yourself or the person you want to use. This image will be used to create the mugshot-style result.</p>
+                    </div>
+                    <div class="step-card fade-in-up" style="transition-delay: 0.2s">
+                        <div class="step-number">02</div>
+                        <h3>Make the Mugshot</h3>
+                        <p>Click the generate button. The AI turns your photo into a realistic mugshot-style image with an arrest-style look.</p>
+                    </div>
+                    <div class="step-card fade-in-up" style="transition-delay: 0.4s">
+                        <div class="step-number">03</div>
+                        <h3>Download the Image</h3>
+                        <p>Once the mugshot is ready, download it to your device and use it wherever you need.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section id="gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2>CRIMINAL RECORDS</h2>
+                    <p>Recent entries in the database.</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item fade-in-up">
+                        <div class="gallery-wrapper">
+                            <img src="images/gallery-result-1.jpg" alt="Mugshot example result 1">
+                            <div class="gallery-overlay">
+                                <span>ID: 0422</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in-up" style="transition-delay: 0.1s">
+                        <div class="gallery-wrapper">
+                            <img src="images/gallery-result-2.jpg" alt="Mugshot example result 2">
+                            <div class="gallery-overlay">
+                                <span>ID: 0423</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gallery-item fade-in-up" style="transition-delay: 0.2s">
+                        <div class="gallery-wrapper">
+                            <img src="images/gallery-result-3.jpg" alt="Mugshot example result 3">
+                            <div class="gallery-overlay">
+                                <span>ID: 0424</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2>User Testimonials</h2>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card fade-in-up">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                        <p class="review-text">"The AI Mugshot Generator is very easy to use. I uploaded my photo, clicked generate, and got a realistic mugshot image in seconds."</p>
+                        <div class="reviewer-info">
+                            <span class="name">James Miller</span>
+                            <span class="role">Content Creator</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in-up" style="transition-delay: 0.1s">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                        <p class="review-text">"I like how simple the process is. The results look realistic, and the tool works smoothly without any confusion."</p>
+                        <div class="reviewer-info">
+                            <span class="name">Laura Thompson</span>
+                            <span class="role">Social Media Manager</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in-up" style="transition-delay: 0.2s">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                        <p class="review-text">"This tool helped me quickly create mugshot-style images for visual concepts. The quality and details are impressive."</p>
+                        <div class="reviewer-info">
+                            <span class="name">Kevin Brown</span>
+                            <span class="role">Graphic Designer</span>
+                        </div>
+                    </div>
+                    <div class="testimonial-card fade-in-up" style="transition-delay: 0.3s">
+                        <div class="quote-icon"><i class="fa-solid fa-quote-right"></i></div>
+                        <p class="review-text">"The AI Mugshot Generator is fast and straightforward. It delivers exactly what it promises with clean and realistic results."</p>
+                        <div class="reviewer-info">
+                            <span class="name">Sophia Wilson</span>
+                            <span class="role">Digital Marketer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQs -->
+        <section id="faqs">
+            <div class="container">
+                <div class="section-header">
+                    <h2>FAQs About AI Mugshot Generator</h2>
+                </div>
+                <div class="faq-container">
+                    <!-- FAQ Items -->
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            What is an AI Mugshot Generator?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>An AI Mugshot Generator is a tool that turns a regular photo into a realistic mugshot-style image with an arrest-style appearance.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How does the AI Mugshot Generator work?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>You upload a photo, and the AI processes it to create a mugshot-style image that looks similar to real arrest photos.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Is it free to use the AI Mugshot Generator?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. The AI Mugshot Generator can be used for free to create mugshot-style images.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Can I use my own photo?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. You can upload your own photo or any image you have permission to use.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Does the tool create real criminal records?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>No. The AI Mugshot Generator only creates visual images. It does not create real records, documents, or legal information.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Will the image look realistic?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. The generator is designed to produce realistic mugshot-style visuals with authentic details.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Is my uploaded photo safe?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. Your image is processed securely and used only to generate the mugshot-style result.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            How long does it take to generate a mugshot?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>The process usually takes just a few seconds after you upload your image.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">
+                            Can I download the generated mugshot?
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Yes. Once the image is ready, you can download it and use it as needed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fa-solid fa-fingerprint"></i>
+                        <span>MUGSHOT.GEN</span>
+                    </div>
+                    <p class="footer-tagline">Create realistic arrest-style visuals with authentic details.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="link-column">
+                        <h4>Navigation</h4>
+                        <a href="#hero">Home</a>
+                        <a href="#playground">Generator</a>
+                        <a href="#gallery">Records</a>
+                    </div>
+                    <div class="link-column">
+                        <h4>Legal</h4>
+                        <a href="#" data-modal-target="privacy-modal">Privacy Policy</a>
+                        <a href="#" data-modal-target="terms-modal">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Mugshot Generator. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Modal -->
+    <div id="privacy-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Privacy Policy</h3>
+                <button class="close-modal" data-modal-close="privacy-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Last Updated:</strong> 2024</p>
+
+                <h4>1. Data Collection</h4>
+                <p>We collect only the minimum data necessary:</p>
+                <ul>
+                  <li>Images you upload for processing (temporarily stored)</li>
+                  <li>Basic usage analytics (non-personal)</li>
+                  <li>Browser type and device information</li>
+                </ul>
+
+                <h4>2. Image Processing</h4>
+                <p>Your uploaded images are:</p>
+                <ul>
+                  <li>Processed securely on our servers</li>
+                  <li>Automatically deleted within 24 hours</li>
+                  <li>Never shared with third parties</li>
+                  <li>Not used for AI training without consent</li>
+                </ul>
+
+                <h4>3. Data Security</h4>
+                <p>All data transmission is encrypted using SSL/TLS protocols.</p>
+
+                <h4>4. Cookies</h4>
+                <p>We use essential cookies only for site functionality.</p>
+
+                <h4>5. Your Rights</h4>
+                <p>You have the right to request deletion of any stored data.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div id="terms-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Terms of Service</h3>
+                <button class="close-modal" data-modal-close="terms-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Last Updated:</strong> 2024</p>
+
+                <h4>1. Acceptance of Terms</h4>
+                <p>By using this service, you agree to these Terms.</p>
+
+                <h4>2. Service Description</h4>
+                <p>This service provides AI-powered image transformation. Provided "as-is" without warranties.</p>
+
+                <h4>3. Acceptable Use</h4>
+                <p>You agree NOT to upload:</p>
+                <ul>
+                  <li>Illegal or unlawful content</li>
+                  <li>Explicit, pornographic, or obscene material</li>
+                  <li>Content depicting violence or harm</li>
+                  <li>Images you do not have rights to use</li>
+                </ul>
+
+                <h4>4. Intellectual Property</h4>
+                <p>You retain full ownership of your original images. Generated effects are royalty-free for personal and commercial use.</p>
+
+                <h4>5. Limitation of Liability</h4>
+                <p>We are not liable for any damages arising from the use of this service.</p>
+
+                <h4>6. Modifications</h4>
+                <p>We may update these terms at any time. Continued use constitutes acceptance.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
